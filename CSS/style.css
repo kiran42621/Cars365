@@ -1,0 +1,17 @@
+.card-image{
+  width: 25rem;
+  height: 15rem;
+}
+.login-wrapper{
+  height: 700px;
+  background-image: url('../imgs/Login.png');
+  background-repeat: no-repeat;
+}
+.Signup-wrapper{
+  height: 700px;
+  background-image: url('../imgs/Signup.png');
+  background-repeat: no-repeat;
+}
+.login-form{
+  margin-top: 135rem;
+}
