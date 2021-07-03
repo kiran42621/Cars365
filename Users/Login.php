@@ -1,4 +1,5 @@
 <?php require '../dbconfig/config.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -35,9 +36,24 @@
         </div>
       </div>
     </div>
+    <audio id="myAudio">
+  <source src="../Audio/myAudio.ogg" type="audio/ogg">
+  <source src="../Audio/myAudio.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>
 </html>
+<script type="text/javascript">
+function playAudio(){
+  // alert("Hello");
+  // var audio = new Audio('myAudio.mp3');
+  // audio.play();
+window.alert("Hello");
+ var x = document.getElementById("myAudio");
+ x.play()
+}
+</script>
 <?php
 if(isset($_POST['login_btn'])){
   $email = $_POST['email'];
@@ -53,7 +69,8 @@ if(isset($_POST['login_btn'])){
     header('location:Home.php');
   }
   else{
-    echo'<script type="text/javascript"> alert("Yaaro Neenu")</script>';
+    // echo'<script type="text/javascript"> alert("Yaaro Neenu")</script>';
+    echo"<script type='text/javascript'> playAudio() </script>";
   }
   }
   catch(Exception $e){
