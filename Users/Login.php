@@ -70,7 +70,7 @@ if(isset($_POST['login_btn'])){
   }
   else{
     // echo'<script type="text/javascript"> alert("Yaaro Neenu")</script>';
-    echo"<script type='text/javascript'> playAudio() </script>";
+    echo"<script type='text/javascript'> alert('Check Username And Password') </script>";
   }
   }
   catch(Exception $e){
