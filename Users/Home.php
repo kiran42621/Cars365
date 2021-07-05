@@ -18,7 +18,7 @@
         while ($row = mysqli_fetch_array($query_solution)) {
           ?>
       <!--Car Ads-->
-
+<form class="" action="Home.php" method="get">
           <div class="col-md-4 mt-3">
             <div class="card" style="width: auto;">
   <img src="../imgs/Vehicle_Images/<?php echo $row['Photo']?>" class="card-img-top card-image" alt="..." style="height:13rem">
@@ -28,11 +28,12 @@
     <p class="card-text"><?php echo $row['Description'] ?></p>
     <p class="card-text"><?php echo $row['Address'] ?></p>
     <p class="card-text"><strong><?php echo $row['Price'] ?>/- per day</strong></p>
-    <button class="btn btn-outline-primary" type="button" name="button">Get</button>
+    <button class="btn btn-outline-primary" type="submit" name="button">Get</button>
+    <input type="hidden" name="hidden_id" value="<?php $row['ID'] ?>">
   </div>
 </div>
           </div>
-
+</form>
 
         <?php
       }
