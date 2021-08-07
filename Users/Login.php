@@ -1,4 +1,6 @@
-<?php require '../dbconfig/config.php'; ?>
+<?php
+session_start();
+require '../dbconfig/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -41,6 +43,7 @@
   <source src="../Audio/myAudio.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
+<span id="sample"></span>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>
 </html>
@@ -62,11 +65,18 @@ if(isset($_POST['login_btn'])){
   $query = "SELECT * FROM users WHERE Email='$email' AND Password='$password'";
   $query_Solution = mysqli_query($con, $query);
 
+  $_SESSION['userdata'] = array();
   try{
 
-  if(mysqli_fetch_array($query_Solution) > 0){
-    $_SESSION['cust_id'] = $email;
+  if(mysqli_num_rows($query_Solution) > 0){
+    $row = mysqli_fetch_array($query_Solution);
+    // $_SESSION['cust_id'] = $row['User_ID'];
+    // $_SESSION['cust_mail'] = $email;
+    $_SESSION['userdata']=$row;
+    // echo "<script>document.getElementById('sample').innerHTML=$data['User_ID'];</script>";
+    printf($_SESSION['userdata'][1]);
     header('location:Home.php');
+
   }
   else{
     // echo'<script type="text/javascript"> alert("Yaaro Neenu")</script>';
@@ -78,3 +88,8 @@ if(isset($_POST['login_btn'])){
       }
 }
 ?>
+<script>
+	if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>

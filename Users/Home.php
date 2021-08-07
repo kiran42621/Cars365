@@ -18,9 +18,9 @@
         while ($row = mysqli_fetch_array($query_solution)) {
           ?>
       <!--Car Ads-->
-<form class="" action="Home.php" method="get">
           <div class="col-md-4 mt-3">
             <div class="card" style="width: auto;">
+  <form class="" action="RentDetails.php" method="get">
   <img src="../imgs/Vehicle_Images/<?php echo $row['Photo']?>" class="card-img-top card-image" alt="..." style="height:13rem">
   <div class="card-body ms-1">
     <h3><?php echo $row['Name'] ?></h3>
@@ -28,12 +28,14 @@
     <p class="card-text"><?php echo $row['Description'] ?></p>
     <p class="card-text"><?php echo $row['Address'] ?></p>
     <p class="card-text"><strong><?php echo $row['Price'] ?>/- per day</strong></p>
-    <button class="btn btn-outline-primary" type="submit" name="button">Get</button>
-    <input type="hidden" name="hidden_id" value="<?php $row['ID'] ?>">
+    <!-- <button  type="submit" name="btn-book">Book</button> -->
+    <input type="submit" name="" value="Book" class="btn btn-outline-primary">
+    <input type="hidden" name="hidden_id" value="<?php echo $row['ID'] ?>">
   </div>
+  </form>
 </div>
           </div>
-</form>
+
 
         <?php
       }
@@ -46,5 +48,11 @@
   </body>
 </html>
 <?php
-
+// if (isset($_POST['btn-book'])) {
+//   $UserID = $_SESSION['data'][0]['User_ID'];
+//   $Username = $_SESSION['data'][0]['Name'];
+//   $CarID = $_POST['hidden_id'];
+//   $RentFrom = $_POST['']
+//
+// }
  ?>
